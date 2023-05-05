@@ -54,9 +54,20 @@ const quotes = [
  
   ];
   
-  // Get the random quote
+  let selectedQuoteIndices = [];
+
+  // Get a random quote that hasn't been selected before
   function getRandomQuote() {
-    return quotes[Math.floor(Math.random() * quotes.length)];
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * quotes.length);
+    } while (selectedQuoteIndices.includes(randomIndex));
+    selectedQuoteIndices.push(randomIndex);
+    if (selectedQuoteIndices.length === quotes.length) {
+      // Reset the selectedQuoteIndices array if all quotes have been selected
+      selectedQuoteIndices = [];
+    }
+    return quotes[randomIndex];
   }
   
   // Set the initial quote
