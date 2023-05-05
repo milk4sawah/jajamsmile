@@ -54,21 +54,21 @@ const quotes = [
  
   ];
   
-// Keep track of the indices of the quotes that have already been selected
-let selectedQuoteIndices = [];
+// Keep track of used quotes
+let usedQuotes = [];
 
-// Get a random quote that hasn't been selected before
+// Get a random quote from the array that hasn't been used before
 function getRandomQuote() {
-  let randomIndex;
-  do {
-    randomIndex = Math.floor(Math.random() * quotes.length);
-  } while (selectedQuoteIndices.includes(randomIndex));
-  selectedQuoteIndices.push(randomIndex);
-  if (selectedQuoteIndices.length === quotes.length) {
-    // Reset the selectedQuoteIndices array if all quotes have been selected
-    selectedQuoteIndices = [];
+  if (usedQuotes.length === quotes.length) {
+    // If all quotes have been used, reset the usedQuotes array
+    usedQuotes = [];
   }
-  return quotes[randomIndex];
+  let quote;
+  do {
+    quote = quotes[Math.floor(Math.random() * quotes.length)];
+  } while (usedQuotes.includes(quote));
+  usedQuotes.push(quote);
+  return quote;
 }
 
 // Set the initial quote
