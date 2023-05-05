@@ -54,42 +54,41 @@ const quotes = [
  
   ];
   
-  let selectedQuoteIndices = [];
+// Keep track of the indices of the quotes that have already been selected
+let selectedQuoteIndices = [];
 
-  // Get a random quote that hasn't been selected before
-  function getRandomQuote() {
-    let randomIndex;
-    do {
-      randomIndex = Math.floor(Math.random() * quotes.length);
-    } while (selectedQuoteIndices.includes(randomIndex));
-    selectedQuoteIndices.push(randomIndex);
-    if (selectedQuoteIndices.length === quotes.length) {
-      // Reset the selectedQuoteIndices array if all quotes have been selected
-      selectedQuoteIndices = [];
-    }
-    return quotes[randomIndex];
+// Get a random quote that hasn't been selected before
+function getRandomQuote() {
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * quotes.length);
+  } while (selectedQuoteIndices.includes(randomIndex));
+  selectedQuoteIndices.push(randomIndex);
+  if (selectedQuoteIndices.length === quotes.length) {
+    // Reset the selectedQuoteIndices array if all quotes have been selected
+    selectedQuoteIndices = [];
   }
-  
-  // Set the initial quote
-  let currentQuote = getRandomQuote();
+  return quotes[randomIndex];
+}
+
+// Set the initial quote
+let currentQuote = getRandomQuote();
+document.getElementById("random-text").innerHTML = currentQuote;
+
+// Add a click event listener to the button
+document.getElementById("quote-button").addEventListener("click", function() {
+  currentQuote = getRandomQuote();
   document.getElementById("random-text").innerHTML = currentQuote;
-  
-  // Add a click event listener to the button
-  document.getElementById("quote-button").addEventListener("click", function() {
-    currentQuote = getRandomQuote();
-    document.getElementById("random-text").innerHTML = currentQuote;
-  });
-  
-  // Update the time and date every second
-  function updateTime() {
-    const now = new Date();
-    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const dayOfWeek = daysOfWeek[now.getDay()];
-    const date = now.toLocaleDateString('en-US', { timeZone: 'Asia/Singapore' });
-    const time = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Singapore' });
-    document.getElementById("datetime").innerHTML = `Today is <strong>${dayOfWeek}</strong>, it is currently <strong>${time}</strong>`;
-  }
-  
-  
-  setInterval(updateTime, 1000);
-  
+});
+
+// Update the time and date every second
+function updateTime() {
+  const now = new Date();
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dayOfWeek = daysOfWeek[now.getDay()];
+  const date = now.toLocaleDateString('en-US', { timeZone: 'Asia/Singapore' });
+  const time = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Singapore' });
+  document.getElementById("datetime").innerHTML = `Today is <strong>${dayOfWeek}</strong>, it is currently <strong>${time}</strong>`;
+}
+
+setInterval(updateTime, 1000);
