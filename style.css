@@ -58,6 +58,8 @@ body {
 #text-container {
   width: 40rem; /* use a percentage width instead of a fixed width */
   height: 20rem; /* use a percentage height instead of a fixed height */
+  position: absolute;
+  top: 30%;
   margin: 0 auto;
   padding: 5em;
   border: 0px solid #ccc;
@@ -79,8 +81,8 @@ body {
 }
 
 #quote-button {
-  position: absolute;
-  top: 70%;
+  position: fixed;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 30%;
@@ -93,6 +95,7 @@ body {
   font-size: 2rem;
   transition: background-color 0.75s ease;
 }
+
 
 #quote-button:hover {
   background-color: black;
