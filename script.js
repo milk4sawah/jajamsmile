@@ -9,7 +9,6 @@ const quotes = [
 "Everyone has something they hold dear, something they never want to lose. That's why they pretend. That's why they hide the truth. And that's why they lie.",
 "Food tastes best when you don't have to work for it.",
 "Frankly being nice is as this guy is almost like a mental illness in itself.",
-"If you two are gonna start an argument, could you do it without randomly hurting my feelings?",
 "I don't want other people to mention my 'self'. Besides if I can be changed with a few words, then that wouldn't be my 'self' would it?",
 "School trips are simply a simulation of adult social life.",
 "If there are things you learn with friends, there must also be things you learn without friends. They must be of equal worth. Two sides of the same coin.",
